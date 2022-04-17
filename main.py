@@ -324,7 +324,7 @@ def restart_game():
         restart_game()
 
     else:
-        time.sleep(0.5)
+        time.sleep(0.2)
         restart_game()
 
 def deflation_s1(): # #ouch map
@@ -354,7 +354,7 @@ def deflation_s1(): # #ouch map
     extra_tower_xp()
     time.sleep(0.2)
     start_game()
-    time.sleep(5)
+    time.sleep(15)
     print("restart process started")
     restart_game()
     time.sleep(0.2)
