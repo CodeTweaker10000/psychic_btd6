@@ -1,2 +1,6 @@
 # psychic_btd6
-deflation gamemode for #ouch map 
+deflation gamemode 
+#ouch map 
+heros needed: sauda or obyn G
+
+have fun!
