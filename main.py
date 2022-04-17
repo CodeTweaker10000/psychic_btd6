@@ -16,7 +16,7 @@ def get_mouse_position():
         print(mouse.get_position())
 
 def start_game():
-    mouse.move(1831, 1001, duration=0.5)
+    mouse.move(1831, 1001, duration=0.2)
     mouse.click(button="left")
     time.sleep(0.1)
     mouse.click(button="left")
