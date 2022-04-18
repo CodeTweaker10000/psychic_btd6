@@ -198,8 +198,9 @@ def monkeyV_upgrade2():
         n += 1
     
 def D_start():
-    print("press 'alt+f3' to start bot")
-    key.wait("alt+f3")
+    print("bot starts in 5 seconds")
+    time.sleep(5)
+    print("starting bot..")
     time.sleep(0.1)
     deflation_s1()
 
