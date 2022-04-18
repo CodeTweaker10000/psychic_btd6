@@ -6,8 +6,20 @@ import cv2
 import numpy as np
 import pyautogui
 import re
+import os
+
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+
+def directory_check():
+    fetch_dir = os.getcwd()
+    if fetch_dir == r"C:\Users\leo\OneDrive\Documents\GitHub\psychic_btd6":
+        print("correct directory found:", fetch_dir)
+    else:
+        print("incorrect directory found:", fetch_dir)
+        os.chdir("C:\\Users\\leo\\OneDrive\\Documents\\GitHub\\psychic_btd6")
+        print("changing directory...")
+        directory_check()
 
 
 def get_mouse_position():
@@ -361,6 +373,7 @@ def deflation_s1(): # #ouch map
     deflation_s1()
 
 def main():
+    directory_check()
     print("Starting game...\n")
     D_start()
     
