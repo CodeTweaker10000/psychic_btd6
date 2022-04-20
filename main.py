@@ -278,6 +278,22 @@ def level_up_detect():
     else:
         return True
 
+def monkey_knowlage_detect():
+    #key.wait("alt+f3")
+    monkey_knowlage_detect = pyautogui.locateOnScreen("monkey_knowlage.png", confidence=0.9)
+    if monkey_knowlage_detect == None:
+        return False
+    else:
+        return True
+
+def insta_monkey_detect():
+    #key.wait("alt+f3")
+    insta_monkey_detect = pyautogui.locateOnScreen("insta_monkey.png", confidence=0.9)
+    if insta_monkey_detect == None:
+        return False
+    else:
+        return True
+
 def restart_game():
     Victory = victory_detect() # True or False
     defeat = defeat_detect() # True or False
@@ -289,9 +305,9 @@ def restart_game():
         mouse.click(button="left")
         time.sleep(0.4)
         mouse.move(1190, 816, duration=0.1)
-        time.sleep(1)
+        time.sleep(2)
         mouse.click(button="left")
-        mouse.move(1596, 29, duration = 0.3) # 947, 740
+        mouse.move(1596, 29, duration = 0.5) # 947, 740
         mouse.click(button="left")
         time.sleep(1)
         mouse.move(1596, 29, duration=0.1) #pause menu button position
@@ -328,10 +344,22 @@ def restart_game():
         time.sleep(0.2)
     
     elif level_up == True:
-        mouse.move(835, 538, duration=0.1)
+        mouse.move(835, 538, duration=0.1) #center of the screen
         time.sleep(0.2)
         mouse.click(button="left")
         time.sleep(0.3)
+        mouse.click(button="left")
+        time.sleep(0.2)
+        restart_game()
+
+    elif monkey_knowlage_detect() == True:
+        mouse.move(835, 538, duration=0.1) #center of screen
+        mouse.click(button="left")
+        time.sleep(0.2)
+        restart_game()
+
+    elif insta_monkey_detect() == True:
+        mouse.move(835, 538, duration=0.1)
         mouse.click(button="left")
         time.sleep(0.2)
         restart_game()
