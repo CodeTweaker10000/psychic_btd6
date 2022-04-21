@@ -14,10 +14,6 @@ from termcolor import colored, cprint
 
 colorama.init()
 
-def text_color():    
-    text = colored('Hello, World!', 'red', attrs=['reverse', 'blink'])
-    print(text)
-    time.sleep(5)
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
@@ -309,6 +305,8 @@ def restart_game():
     defeat = defeat_detect() # True or False
     game_over = game_over_detect() # True or False
     level_up = level_up_detect() # True or False
+    monkey_knowlage = monkey_knowlage_detect() # True or False
+    insta_monkey = insta_monkey_detect() # True or False
     if Victory == True:
         mouse.move(958, 895, duration=0.1)
         time.sleep(0.4)
@@ -362,14 +360,14 @@ def restart_game():
         #time.sleep(0.2)
         restart_game()
 
-    elif monkey_knowlage_detect() == True:
+    elif monkey_knowlage() == True:
         mouse.move(835, 538, duration=0.1) #center of screen
         mouse.click(button="left")
         time.sleep(0.2)
         print(Fore.GREEN + "Monkey knowlage detected!")
         restart_game()
 
-    elif insta_monkey_detect() == True:
+    elif insta_monkey == True:
         mouse.move(835, 538, duration=0.1) #center of screen
         mouse.click(button="left")
         time.sleep(0.2)
