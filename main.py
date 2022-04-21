@@ -7,18 +7,28 @@ import numpy as np
 import pyautogui
 import re
 import os
+import colorama
+from colorama import Fore
+import sys
+from termcolor import colored, cprint
 
+colorama.init()
+
+def text_color():    
+    text = colored('Hello, World!', 'red', attrs=['reverse', 'blink'])
+    print(text)
+    time.sleep(5)
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
 def directory_check():
     fetch_dir = os.getcwd()
     if fetch_dir == r"C:\Users\leo\OneDrive\Documents\GitHub\psychic_btd6":
-        print("correct directory found:", fetch_dir)
+        print(Fore.GREEN + "correct directory found:", fetch_dir)
     else:
-        print("incorrect directory found:", fetch_dir)
+        print(Fore.RED + "incorrect directory found:", fetch_dir)
         os.chdir("C:\\Users\\leo\\OneDrive\\Documents\\GitHub\\psychic_btd6")
-        print("changing directory...")
+        print(Fore.YELLOW + "changing directory...")
         directory_check()
 
 
@@ -198,9 +208,9 @@ def monkeyV_upgrade2():
         n += 1
     
 def D_start():
-    print("bot starts in 5 seconds")
-    time.sleep(5)
-    print("starting bot..")
+    print(Fore.YELLOW + "bot starts in 10 seconds")
+    time.sleep(10)
+    print(Fore.YELLOW + "starting bot..\n")
     time.sleep(0.1)
     deflation_s1()
 
@@ -243,7 +253,7 @@ def screenCapture():
         return fixed_text
         
     else:
-        print("no text")
+        print(Fore.RED + "active round NOT found!")
         return None
     
 def victory_detect():
@@ -348,20 +358,22 @@ def restart_game():
         time.sleep(0.2)
         mouse.click(button="left")
         time.sleep(0.3)
-        mouse.click(button="left")
-        time.sleep(0.2)
+        #mouse.click(button="left")
+        #time.sleep(0.2)
         restart_game()
 
     elif monkey_knowlage_detect() == True:
         mouse.move(835, 538, duration=0.1) #center of screen
         mouse.click(button="left")
         time.sleep(0.2)
+        print(Fore.GREEN + "Monkey knowlage detected!")
         restart_game()
 
     elif insta_monkey_detect() == True:
-        mouse.move(835, 538, duration=0.1)
+        mouse.move(835, 538, duration=0.1) #center of screen
         mouse.click(button="left")
         time.sleep(0.2)
+        print(Fore.GREEN + "Insta monkey detected!")
         restart_game()
 
     else:
@@ -369,7 +381,7 @@ def restart_game():
         restart_game()
 
 def deflation_s1(): # #ouch map
-    print("bot started")
+    print(Fore.GREEN + "bot started")
     key.press_and_release("alt")
     time.sleep(0.2)
     monkeyV_place()
@@ -396,14 +408,14 @@ def deflation_s1(): # #ouch map
     time.sleep(0.2)
     start_game()
     time.sleep(15)
-    print("restart process started")
+    print(Fore.YELLOW + "restart process started")
     restart_game()
     time.sleep(0.2)
     deflation_s1()
 
 def main():
     directory_check()
-    print("Starting game...\n")
+    print(Fore.CYAN + "Starting game...\n")
     D_start()
     
 
@@ -413,6 +425,10 @@ def main():
 
 #screenCapture()
 
-#dir changing "cd.." för att återgå till standart. cd file path för att sedan gå in i en ny.  (cd.. kan behövas köra fler gånger...)
+# color coding in console:
+# red = error/bad, 
+# green = success/good, 
+# yellow = progress/processing/in-process/ongoing change.
+# blue = information/informative/notification/notification.
 
 main()
