@@ -360,7 +360,7 @@ def restart_game():
         #time.sleep(0.2)
         restart_game()
 
-    elif monkey_knowlage() == True:
+    elif monkey_knowlage == True:
         mouse.move(835, 538, duration=0.1) #center of screen
         mouse.click(button="left")
         time.sleep(0.2)
