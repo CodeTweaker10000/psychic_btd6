@@ -220,17 +220,17 @@ def hero_place(): # Sauda / obyn
 
 def extra_tower_xp():
     extra_tower1_poss = [1429, 538]
-    extra_tower2_poss = [758, 495]
+    targeting_poss = [84, 364]
     mouse.move(extra_tower1_poss[0], extra_tower1_poss[1])
-    key.press("n") # N = mortar monekey
-    key.release("n") # N = mortar monekey
+    key.press("b") # N = mortar monekey B = helikopter
+    key.release("b") # N = mortar monekey B = helikopter
     time.sleep(0.2)
     mouse.click(button="left")
-    time.sleep(0.1)
-    mouse.move(extra_tower2_poss[0], extra_tower2_poss[1])
-    key.press("x")
-    key.release("x")
     time.sleep(0.2)
+    mouse.move(extra_tower1_poss[0], extra_tower1_poss[1])
+    mouse.click(button="left")
+    time.sleep(0.2)
+    mouse.move(targeting_poss[0], targeting_poss[1])
     mouse.click(button="left")
 
 def screenCapture():
