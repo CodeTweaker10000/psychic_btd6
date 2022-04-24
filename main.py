@@ -1,3 +1,4 @@
+from dataclasses import replace
 import keyboard as key
 import time
 import mouse
@@ -32,6 +33,15 @@ def get_mouse_position():
     while True:
         key.wait('-')
         print(mouse.get_position())
+
+def current_lv():
+    with open("level.txt", "r") as f:
+        level_text = f.read()
+    print(Fore.CYAN + "New level reached! : ", int(level_text) + 1)
+    level_num = int(level_text)
+    new_lv = level_num + 1
+    with open("level.txt", "w+") as f:
+        f.writelines(str(new_lv))
 
 def start_game():
     mouse.move(1831, 1001, duration=0.2)
@@ -352,6 +362,8 @@ def restart_game():
         time.sleep(0.2)
     
     elif level_up == True:
+        current_lv() # om lv blir 155 så kan boten stängas av.
+        
         mouse.move(835, 538, duration=0.1) #center of the screen
         time.sleep(0.2)
         mouse.click(button="left")
@@ -379,7 +391,7 @@ def restart_game():
         restart_game()
 
 def deflation_s1(): # #ouch map
-    print(Fore.GREEN + "bot started")
+    print(Fore.CYAN + "bot started")
     key.press_and_release("alt")
     time.sleep(0.2)
     monkeyV_place()
