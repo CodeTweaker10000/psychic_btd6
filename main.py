@@ -37,7 +37,7 @@ def get_mouse_position():
 def current_lv():
     with open("level.txt", "r") as f:
         level_text = f.read()
-    print(Fore.CYAN + "New level reached! : ", int(level_text) + 1)
+    print(Fore.LIGHTCYAN_EX + "New level reached! : ", int(level_text) + 1)
     level_num = int(level_text)
     new_lv = level_num + 1
     with open("level.txt", "w+") as f:
@@ -391,7 +391,7 @@ def restart_game():
         restart_game()
 
 def deflation_s1(): # #ouch map
-    print(Fore.CYAN + "bot started")
+    print(Fore.CYAN + "bot started!")
     key.press_and_release("alt")
     time.sleep(0.2)
     monkeyV_place()
@@ -418,7 +418,7 @@ def deflation_s1(): # #ouch map
     time.sleep(0.2)
     start_game()
     time.sleep(15)
-    print(Fore.YELLOW + "restart process started")
+    print(Fore.YELLOW + "restart process started...")
     restart_game()
     time.sleep(0.2)
     deflation_s1()
@@ -440,5 +440,6 @@ def main():
 # green = success/good, 
 # yellow = progress/processing/in-process/ongoing change.
 # blue = information/informative/notification/notification.
+#this earns you 59,735 account xp every 5-6 mins. (60min = 597,350 xp ish)
 
 main()
