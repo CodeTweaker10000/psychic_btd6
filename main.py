@@ -1,4 +1,5 @@
 from dataclasses import replace
+from fileinput import close
 import keyboard as key
 import time
 import mouse
@@ -232,8 +233,8 @@ def extra_tower_xp():
     extra_tower1_poss = [1429, 538]
     targeting_poss = [84, 364]
     mouse.move(extra_tower1_poss[0], extra_tower1_poss[1])
-    key.press("b") # N = mortar monekey B = helikopter
-    key.release("b") # N = mortar monekey B = helikopter
+    key.press("w") # N = mortar monekey B = helikopter w = boomerang 
+    key.release("w") # N = mortar monekey B = helikopter w = boomerang
     time.sleep(0.2)
     mouse.click(button="left")
     time.sleep(0.2)
@@ -368,8 +369,8 @@ def restart_game():
         time.sleep(0.2)
         mouse.click(button="left")
         time.sleep(0.3)
-        #mouse.click(button="left")
-        #time.sleep(0.2)
+        mouse.click(button="left")
+        time.sleep(0.2)
         restart_game()
 
     elif monkey_knowlage == True:
@@ -408,11 +409,11 @@ def deflation_s1(): # #ouch map
     time.sleep(0.2)
     monkeyV_sell()
     time.sleep(0.2)
-    monkeyV_upgrade2()
-    time.sleep(0.2)
     monkeyV_sell2()
     time.sleep(0.2)
     hero_place()
+    time.sleep(0.2)
+    monkeyV_upgrade2()
     time.sleep(0.2)
     extra_tower_xp()
     time.sleep(0.2)
@@ -441,5 +442,6 @@ def main():
 # yellow = progress/processing/in-process/ongoing change.
 # blue = information/informative/notification/notification.
 #this earns you 59,735 account xp every 5-6 mins. (60min = 597,350 xp ish)
-
+#var lv 124 men resetartade
+# account ID: VPLUUFECY
 main()
