@@ -1,5 +1,3 @@
-from dataclasses import replace
-from fileinput import close
 import keyboard as key
 import time
 import mouse
@@ -28,21 +26,6 @@ def directory_check():
         os.chdir("C:\\Users\\leo\\OneDrive\\Documents\\GitHub\\psychic_btd6")
         print(Fore.YELLOW + "changing directory...")
         directory_check()
-
-
-def get_mouse_position():
-    while True:
-        key.wait('-')
-        print(mouse.get_position())
-
-def current_lv():
-    with open("level.txt", "r") as f:
-        level_text = f.read()
-    print(Fore.LIGHTCYAN_EX + "New level reached! : ", int(level_text) + 1)
-    level_num = int(level_text)
-    new_lv = level_num + 1
-    with open("level.txt", "w+") as f:
-        f.writelines(str(new_lv))
 
 def start_game():
     mouse.move(1831, 1001, duration=0.2)
@@ -214,12 +197,13 @@ def monkeyV_upgrade2():
         time.sleep(0.1)
         n += 1
     
-def D_start():
+def start():
     print(Fore.YELLOW + "bot starts in 10 seconds")
     time.sleep(10)
     print(Fore.YELLOW + "starting bot..\n")
     time.sleep(0.1)
-    deflation_s1()
+    #deflation_s1()
+    pop_farmer()
 
 def hero_place(): # Sauda / obyn
     hero_poss = [548, 111] #[439, 440]
@@ -311,6 +295,14 @@ def insta_monkey_detect():
     else:
         return True
 
+def pause_detect():
+    #key.wait("alt+f3")
+    pause_detect = pyautogui.locateOnScreen("pause.png", confidence=0.9)
+    if pause_detect == None:
+        return False
+    else:
+        return True
+
 def restart_game():
     Victory = victory_detect() # True or False
     defeat = defeat_detect() # True or False
@@ -387,6 +379,13 @@ def restart_game():
         print(Fore.GREEN + "Insta monkey detected!")
         restart_game()
 
+    elif pause_detect == True:
+        mouse.move(1068, 836, duration=0.1)
+        time.sleep(0.2)
+        mouse.click(button="left")
+        time.sleep(0.2)
+        pop_farmer()
+
     else:
         time.sleep(0.2)
         restart_game()
@@ -424,10 +423,25 @@ def deflation_s1(): # #ouch map
     time.sleep(0.2)
     deflation_s1()
 
+def pop_farmer(): #dark kastle map
+    n = 0
+    print(Fore.CYAN + "bot started!")  
+    key.press_and_release("alt")
+    mouse.move(958, 895, duration=0.1) #center of the screen
+    key.press_and_release("z")
+    time.sleep(0.2)
+    key.press_and_release("space")
+    time.sleep(0.2)
+    key.press_and_release("space")
+    time.sleep(0.2)
+    restart_game()
+    time.sleep(0.2)
+    pop_farmer()
+
 def main():
     directory_check()
-    print(Fore.CYAN + "Starting game...\n")
-    D_start()
+    print(Fore.CYAN + "Starting process...\n")
+    start()
     
 
 #get_mouse_position()
